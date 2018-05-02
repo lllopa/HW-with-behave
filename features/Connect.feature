@@ -24,3 +24,10 @@ Feature: Connect
     Scenario: Output file is required
         When Client Starts without args
         Then Help message is displayed
+
+    Scenario: Failed test
+        Given Server Address 'localhost'
+        And Server port '1234'
+        And Output file 'c:\tempp\out.txt'
+        When Client Starts
+        Then [WinError 10061]
